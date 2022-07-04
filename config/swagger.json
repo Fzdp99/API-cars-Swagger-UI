@@ -1,0 +1,473 @@
+{
+  "openapi": "3.0.0",
+  "info": { "title": "Car API documentation", "version": "0.0.1" },
+  "paths": {
+    "/user": {
+      "get": {
+        "tags": ["Api user"],
+        "summary": "List user",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      },
+      "post": {
+        "tags": ["Api user"],
+        "summary": "Create user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": { "type": "string", "example": "fatwa" },
+                  "email": { "type": "string", "example": "fatwa@gmail.com" },
+                  "password": { "type": "string", "example": "123" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": ["Api user"],
+        "summary": "Login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string", "example": "fatwa@gmail.com" },
+                  "password": { "type": "string", "example": "123" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      }
+    },
+    "/user/status": {
+      "get": {
+        "tags": ["Api user"],
+        "summary": "Data user login",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      }
+    },
+    "/user/updateProfile": {
+      "post": {
+        "tags": ["Api user"],
+        "summary": "Update profile user",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": { "type": "string", "example": "fatwa" },
+                  "email": { "type": "string", "example": "fatwa@gmail.com" },
+                  "password": { "type": "string", "example": "123" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": ["Api user"],
+        "summary": "Search user with id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "require": true,
+            "description": "ID data",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      },
+      "put": {
+        "tags": ["Api user"],
+        "summary": "Update user",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "require": true,
+            "description": "ID data",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": { "type": "string", "example": "fatwa" },
+                  "email": { "type": "string", "example": "fatwa@gmail.com" },
+                  "password": { "type": "string", "example": "123" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      },
+      "delete": {
+        "tags": ["Api user"],
+        "summary": "Delete user",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "require": true,
+            "description": "ID data",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      }
+    },
+    "/user/member_to_admin/{id}": {
+      "get": {
+        "tags": ["Api switch type"],
+        "summary": "Member to admin",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "require": true,
+            "description": "ID data",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      }
+    },
+    "/user/admin_to_member/{id}": {
+      "get": {
+        "tags": ["Api switch type"],
+        "summary": "Admin to member",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "require": true,
+            "description": "ID data",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      }
+    },
+    "/car": {
+      "get": {
+        "tags": ["Api car"],
+        "summary": "List car",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      },
+      "post": {
+        "tags": ["Api car"],
+        "summary": "Create car",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "plate": { "type": "string", "example": "Z10-3121" },
+                  "manufacture": { "type": "string", "example": "Mazda" },
+                  "model": { "type": "string", "example": "9701" },
+                  "image": {
+                    "type": "string",
+                    "example": "https://cdn.motor1.com/images/mgl/Vz8nXB/s1/ford-ranger-raptor-unofficial-rendering.jpg"
+                  },
+                  "rentperday": { "type": "string", "example": "200000" },
+                  "capacity": { "type": "string", "example": "10" },
+                  "description": {
+                    "type": "string",
+                    "example": "Brake assist. Leather-wrapped shift knob. Glove box lamp. Air conditioning w/in-cabin microfilter."
+                  },
+                  "transmission": { "type": "string", "example": "Automatic" },
+                  "type": { "type": "string", "example": "Sedan" },
+                  "year": { "type": "string", "example": "2013" },
+                  "options": {
+                    "type": "string",
+                    "example": "Cruise Control,Tinted Glass, Tinted Glass, Tinted Glass, AM/FM Stereo"
+                  },
+                  "specs": {
+                    "type": "string",
+                    "example": "Brake assist, Leather-wrapped shift knob, Glove box lamp, Air conditioning w/in-cabin microfilter, Body color folding remote-controlled pwr mirrors, Dual-stage front airbags w/occupant classification system"
+                  },
+                  "availableAt": { "type": "string", "example": "true" }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      }
+    },
+    "/car/history": {
+      "get": {
+        "tags": ["Api car"],
+        "summary": "History car",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      }
+    },
+    "/car/{id}": {
+      "get": {
+        "tags": ["Api car"],
+        "summary": "Search car with id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "require": true,
+            "description": "ID data",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      },
+      "put": {
+        "tags": ["Api car"],
+        "summary": "Update car",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "require": true,
+            "description": "ID data",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "plate": { "type": "string", "example": "Z10-3121" },
+                  "manufacture": { "type": "string", "example": "Mazda" },
+                  "model": { "type": "string", "example": "9701" },
+                  "image": {
+                    "type": "string",
+                    "example": "https://cdn.motor1.com/images/mgl/Vz8nXB/s1/ford-ranger-raptor-unofficial-rendering.jpg"
+                  },
+                  "rentperday": { "type": "string", "example": "200000" },
+                  "capacity": { "type": "string", "example": "10" },
+                  "description": {
+                    "type": "string",
+                    "example": "Brake assist. Leather-wrapped shift knob. Glove box lamp. Air conditioning w/in-cabin microfilter."
+                  },
+                  "transmission": { "type": "string", "example": "Automatic" },
+                  "type": { "type": "string", "example": "Sedan" },
+                  "year": { "type": "string", "example": "2013" },
+                  "options": {
+                    "type": "string",
+                    "example": "Cruise Control,Tinted Glass, Tinted Glass, Tinted Glass, AM/FM Stereo"
+                  },
+                  "specs": {
+                    "type": "string",
+                    "example": "Brake assist, Leather-wrapped shift knob, Glove box lamp, Air conditioning w/in-cabin microfilter, Body color folding remote-controlled pwr mirrors, Dual-stage front airbags w/occupant classification system"
+                  },
+                  "availableAt": { "type": "string", "example": "true" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      },
+      "delete": {
+        "tags": ["Api car"],
+        "summary": "Delete list car",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "require": true,
+            "description": "ID data",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": { "description": "OK" },
+          "400": { "description": "" },
+          "401": { "description": "" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "in": "header",
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
